@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Blocks Layout</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-right: auto;
+        }
+
+        .header-left {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: flex-start;
+            width: 250px;
+        }
+
+        .contact-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+
+        .phone-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .header-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 15px;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 25px;
+            padding: 8px 16px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-right: 20px;
+            width: 200px;
+        }
+
+        .search-container:focus-within {
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+            transform: translateY(-1px);
+        }
+
+        .search-input {
+            border: none;
+            outline: none;
+            padding: 6px 12px;
+            font-size: 12px;
+            width: calc(100% - 40px);
+            color: #333;
+        }
+
+        .search-input::placeholder {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .search-button {
+            background: none;
+            border: none;
+            color: #4CAF50;
+            cursor: pointer;
+            padding: 6px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .search-button:hover {
+            color: #2E7D32;
+            transform: scale(1.1);
+        }
+
+        .appointment-button {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-left: 40px;
+            margin-right: 0;
+            font-size: 15px;
+            margin-top: -20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .appointment-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            background: linear-gradient(135deg, #45a049 0%, #1b5e20 100%);
+        }
+
+        .appointment-button i {
+            font-size: 16px;
+        }
+
+        .address-section {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 40px;
+            margin-top: -20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .address-text {
+            display: block;
+            color: #4CAF50;
+            font-size: 14px;
+            margin-bottom: 4px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-align: right;
+        }
+
+        .address {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #333;
+            justify-content: flex-end;
+        }
+
+        .address i {
+            color: #4CAF50;
+            font-size: 14px;
+            background: #e8f5e9;
+            padding: 6px;
+            border-radius: 50%;
+        }
+
+        .address a {
+            color: white;
+            text-decoration: none;
+            padding: 6px 12px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .phone-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+        }
+
+        .phone-section:hover {
+            transform: translateY(-2px);
+        }
+
+        .phone-number {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: 500;
+            margin-bottom: 10px;
+            padding: 5px 0;
+        }
+
+        .phone-number:hover {
+            color: #4CAF50;
+            transform: scale(1.02);
+        }
+
+        .phone-number i {
+            color: #4CAF50;
+            font-size: 18px;
+            background: #e8f5e9;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .phone-number:hover i {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .container {
+            display: flex;
+            min-height: calc(100vh - 200px);
+        }
+
+        .block {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+            min-height: 400px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 30px;
+            border-radius: 20px;
+        }
+
+        .block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .block:nth-child(1) {
+            background-color: #f0f0f0;
+        }
+
+        .block:nth-child(1):hover {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+        }
+
+        .block:nth-child(2) {
+            background-color: #e0e0e0;
+        }
+
+        .block:nth-child(2):hover {
+            background: linear-gradient(135deg, #f0f8f0 0%, #d8ecd8 100%);
+        }
+
+        .block:nth-child(3) {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+        }
+
+        .block:nth-child(3):hover {
+            background: linear-gradient(135deg, #f0f8f0 0%, #d8ecd8 100%);
+        }
+
+        .block:nth-child(4) {
+            background-color: #c0c0c0;
+        }
+
+        .block:nth-child(4):hover {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+        }
+
+        .nav-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-self: flex-start;
+        }
+
+        .before-after-img {
+            max-width: 25%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 0;
+        }
+
+        .block-title {
+            font-size: 24px;
+            color: #333;
+            margin: 0 0 10px 0;
+            font-weight: 500;
+            align-self: flex-start;
+        }
+
+        .block-description {
+            align-self: flex-start;
+        }
+
+        .block:first-child {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #b9f6ca 100%);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .block-content h2 {
+            color: #1b5e20;
+            margin-bottom: 15px;
+            font-size: 28px;
+            text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .block-description {
+            color: #2e2e2e;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        .highlight-text {
+            color: #1b5e20;
+            font-weight: 500;
+            text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .block-content {
+            flex: 1;
+        }
+
+        .doctor-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            margin: 0 auto 30px;
+            display: block;
+        }
+
+        .doctor-image:hover {
+            transform: scale(1.02);
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .text-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .services-list {
+            text-align: left;
+            display: inline-block;
+            margin: 15px auto;
+        }
+
+        .block h2 {
+            color: #1b5e20;
+            margin-bottom: 20px;
+            font-size: 28px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .block h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #4CAF50, #81C784);
+            border-radius: 2px;
+        }
+
+        .news-block {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            text-align: left;
+        }
+
+        .news-block h2 {
+            margin-bottom: 30px;
+        }
+
+        .contact-block {
+            display: none;
+        }
+
+        .block:nth-child(4) {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+        }
+
+        .call-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(76, 175, 80, 0.2);
+            cursor: pointer;
+            margin-bottom: 0;
+            width: auto;
+            min-width: 160px;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .call-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            background: linear-gradient(135deg, #45a049 0%, #1b5e20 100%);
+        }
+
+        .call-button i {
+            margin-right: 8px;
+        }
+
+        .section-title {
+            text-align: left;
+            font-size: 32px;
+            color: #2E7D32;
+            margin-bottom: 30px;
+            margin-left: 30px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            border-radius: 2px;
+            transform: none;
+        }
+
+        .appointment-container {
+            margin-top: 0;
+        }
+
+        .appointment-section {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 30px;
+            margin-left: auto;
+        }
+
+        .callback-button {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #FF5722 0%, #E64A19 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            font-size: 15px;
+            width: 100%;
+        }
+
+        .callback-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
+            background: linear-gradient(135deg, #F4511E 0%, #D84315 100%);
+        }
+
+        .callback-button i {
+            font-size: 16px;
+        }
+
+        .phone-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+        }
+
+        .contact-section {
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 5px;
+        }
+
+        .contact-item i {
+            color: #4CAF50;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .contact-item h3 {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .contact-item p {
+            margin: 0;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .contact-item a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #4CAF50;
+        }
+
+        @media screen and (max-width: 768px) {
+            .header {
+                height: auto;
+                padding: 15px;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .logo-section {
+                flex-direction: column;
+                width: 100%;
+                gap: 15px;
+            }
+
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .search-container {
+                flex-direction: column;
+                width: 100%;
+                gap: 10px;
+            }
+
+            .search-input {
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .appointment-button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .header-right {
+                flex-direction: column;
+                width: 100%;
+                gap: 15px;
+            }
+
+            .address-section,
+            .hours-section,
+            .phone-section {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .address,
+            .hours,
+            .phone-number {
+                justify-content: center;
+            }
+
+            .container {
+                flex-direction: column;
+                min-height: auto;
+            }
+
+            .block {
+                padding: 30px 15px;
+            }
+
+            .nav-button {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .block:first-child {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .doctor-image {
+                width: 180px;
+                height: 180px;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Стили для модального окна */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 400px;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translate(-50%, -60%); opacity: 0; }
+            to { transform: translate(-50%, -50%); opacity: 1; }
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h3 {
+            color: #2E7D32;
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            color: #999;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: #2E7D32;
+        }
+
+        .callback-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #4CAF50;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+        }
+
+        .form-group label {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            transition: all 0.3s;
+            pointer-events: none;
+            background: white;
+            padding: 0 4px;
+        }
+
+        .form-group input:focus + label,
+        .form-group input:not(:placeholder-shown) + label {
+            top: 0;
+            font-size: 12px;
+            color: #4CAF50;
+        }
+
+        .submit-button {
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .submit-button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo-section">
+            <img src="logo.png" alt="На Цветном" class="logo">
+            <div class="header-left">
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Поиск услуг...">
+                    <button class="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="appointment-section">
+                <div class="address-section">
+                    <span class="address-text">Адрес</span>
+                    <div class="address">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <a href="https://www.google.com/maps/place/«на+Цветном»+подологи/data=!4m7!3m6!1s0x46b54b433fe91c23:0x586a15aaedf17096!8m2!3d55.7717539!4d37.6190756!16s%2Fg%2F11vbd__49w!19sChIJIxzpP0NLtUYRlnDx7aoValg?authuser=0&hl=ru&rclk=1" target="_blank">
+                            Цветной Бульвар, д.19, стр.4
+                        </a>
+                    </div>
+                </div>
+                <a href="https://n1239652.yclients.com/" target="_blank" class="appointment-button" title="Записаться на приём">
+                    <i class="fas fa-calendar-plus"></i>
+                    Записаться
+                </a>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="header-info">
+                <div class="phone-section">
+                    <button class="callback-button">
+                        <i class="fas fa-phone-alt"></i>
+                        Заказать Обратный Звонок
+                    </button>
+                    <a href="tel:+79778079409" class="phone-number">
+                        <i class="fas fa-phone"></i>
+                        +7-977-807-94-09
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="block">
+            <div class="block-content">
+                <h2>Подолог</h2>
+                <div class="content-wrapper">
+                    <img src="doctor.jpg" alt="Профессиональный подолог" class="doctor-image">
+                    <div class="text-content">
+                        <p class="block-description">
+                            Добро пожаловать в наш кабинет подолога «на Цветном», где здоровье и красота ваших ног - наша первостепенная задача! Мы гордимся, что предоставляем высококачественные подологические услуги, которые помогут Вам чувствовать себя уверенно и комфортно.
+                        </p>
+                        <p class="block-description">
+                            У нас работают только <span class="highlight-text">высокопрофессиональные специалисты с большим опытом</span>, которые постоянно совершенствуют свои знания и навыки.
+                        </p>
+                        <p class="block-description">В перечень наших услуг входит:</p>
+                        <ul class="services-list">
+                            <li>Лечение и профилактика вросших ногтей</li>
+                            <li>Комплексный уход за ногтями и стопой</li>
+                            <li>Удаление мозолей и натоптышей</li>
+                            <li>Консультация и индивидуальные рекомендации по домашнему уходу</li>
+                            <li>Коррекция деформации ногтей и стоп</li>
+                        </ul>
+                        <p class="block-description">
+                            Современные методы и безопасные материалы, гарантия наилучшего результата.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="block news-block">
+            <h2>Новости</h2>
+            <p class="block-description"></p>
+        </div>
+        <div class="block" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);">
+            <h2 class="section-title">Наши работы</h2>
+            <div class="image-container">
+                <img src="before-after.jpg" alt="До лечения" class="before-after-img">
+                <img src="before-after-3.jpg" alt="Процесс лечения" class="before-after-img">
+                <img src="before-after-2.jpg" alt="Процесс лечения" class="before-after-img">
+                <img src="before-after-4.jpg" alt="После лечения" class="before-after-img">
+            </div>
+            <p class="block-description"></p>
+        </div>
+        <div class="block" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);">
+            <h2 class="section-title">Прайс</h2>
+            <p class="block-description"></p>
+        </div>
+        <div class="block contact-block">
+            <h2>Контакты</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Адрес</h3>
+                    <p>г. Москва, Цветной бульвар, д. 19, стр. 4</p>
+                </div>   
+        </div>
+    </div>
+    <!-- Модальное окно для заказа звонка -->
+    <div id="callbackModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-header">
+                <h3>Заказать обратный звонок</h3>
+            </div>
+            <form class="callback-form" id="callbackForm">
+                <div class="form-group">
+                    <input type="text" id="name" required placeholder=" ">
+                    <label for="name">Ваше имя</label>
+                </div>
+                <div class="form-group">
+                    <input type="tel" id="phone" required placeholder=" ">
+                    <label for="phone">Номер телефона</label>
+                </div>
+                <button type="submit" class="submit-button">Заказать звонок</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.querySelector('.search-input');
+            const searchButton = document.querySelector('.search-button');
+            const blocks = document.querySelectorAll('.block-description, .services-list li');
+
+            function performSearch() {
+                const searchTerm = searchInput.value.toLowerCase();
+                
+                blocks.forEach(block => {
+                    const text = block.textContent.toLowerCase();
+                    const parent = block.closest('.block');
+                    
+                    if (text.includes(searchTerm)) {
+                        if (parent) {
+                            parent.style.display = 'flex';
+                            // Подсветка найденного текста
+                            const regex = new RegExp(searchTerm, 'gi');
+                            block.innerHTML = block.textContent.replace(regex, match => 
+                                `<span style="background-color: #e8f5e9; color: #2E7D32; padding: 0 2px; border-radius: 3px;">${match}</span>`
+                            );
+                        }
+                    } else {
+                        if (parent && !parent.querySelector('.block-description, .services-list li').textContent.toLowerCase().includes(searchTerm)) {
+                            parent.style.display = 'none';
+                        }
+                    }
+                });
+            }
+
+            searchButton.addEventListener('click', performSearch);
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+
+            // Сброс поиска при пустом поле
+            searchInput.addEventListener('input', function() {
+                if (this.value === '') {
+                    blocks.forEach(block => {
+                        const parent = block.closest('.block');
+                        if (parent) {
+                            parent.style.display = 'flex';
+                            block.innerHTML = block.textContent;
+                        }
+                    });
+                }
+            });
+
+            const modal = document.getElementById('callbackModal');
+            const callbackButtons = document.querySelectorAll('.callback-button');
+            const closeBtn = document.querySelector('.modal-close');
+            const form = document.getElementById('callbackForm');
+
+            // Открытие модального окна при клике на кнопку
+            callbackButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden'; // Блокируем прокрутку
+                });
+            });
+
+            // Закрытие модального окна при клике на крестик
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+                document.body.style.overflow = ''; // Возвращаем прокрутку
+            });
+
+            // Закрытие модального окна при клике вне его
+            window.addEventListener('click', function(event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // Обработка отправки формы
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const name = document.getElementById('name').value;
+                const phone = document.getElementById('phone').value;
+                
+                const BOT_TOKEN = '7875207475:AAHGhqBu8SWt-COfJA43WKH92cegu5HMuOU';
+                const CHAT_ID = '-1002351032302';
+
+                try {
+                    const message = `🔔 Новая заявка на обратный звонок!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n\n📅 Дата: ${new Date().toLocaleString()}`;
+                    const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            chat_id: CHAT_ID,
+                            text: message
+                        })
+                    });
+
+                    if (response.ok) {
+                        console.log('Сообщение успешно отправлено');
+                        alert('Спасибо! Мы перезвоним вам в ближайшее время.');
+                        form.reset();
+                        modal.style.display = 'none';
+                        document.body.style.overflow = '';
+                    } else {
+                        throw new Error('Ошибка отправки');
+                    }
+                } catch (error) {
+                    console.error('Ошибка при отправке сообщения:', error);
+                    alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже или свяжитесь с нами по телефону.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
