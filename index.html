@@ -1,15 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vertical Blocks Layout</title>
+    <title>На Цветном Подологи</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
         }
 
         .header {
@@ -17,14 +26,33 @@
             justify-content: space-between;
             align-items: flex-start;
             padding: 20px;
-            background-color: #f8f8f8;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid #e8f5e9;
         }
 
         .logo-section {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 30px;
             margin-right: auto;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #e8f5e9;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
         }
 
         .header-left {
@@ -35,12 +63,21 @@
             width: 250px;
         }
 
-        .contact-section {
+        .header-right {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin-top: 15px;
-            margin-bottom: 20px;
+            align-items: flex-end;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
         .phone-section {
@@ -48,26 +85,6 @@
             flex-direction: column;
             align-items: flex-end;
             gap: 10px;
-        }
-
-        .logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .header-info {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 15px;
         }
 
         .search-container {
@@ -82,11 +99,6 @@
             width: 200px;
         }
 
-        .search-container:focus-within {
-            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
-            transform: translateY(-1px);
-        }
-
         .search-input {
             border: none;
             outline: none;
@@ -94,11 +106,6 @@
             font-size: 12px;
             width: calc(100% - 40px);
             color: #333;
-        }
-
-        .search-input::placeholder {
-            color: #999;
-            font-size: 14px;
         }
 
         .search-button {
@@ -113,298 +120,24 @@
             transition: all 0.3s ease;
         }
 
-        .search-button:hover {
-            color: #2E7D32;
-            transform: scale(1.1);
-        }
-
-        .appointment-button {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
-            color: white;
-            text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 25px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin-left: 40px;
-            margin-right: 0;
-            font-size: 15px;
-            margin-top: -20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .appointment-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-            background: linear-gradient(135deg, #45a049 0%, #1b5e20 100%);
-        }
-
-        .appointment-button i {
-            font-size: 16px;
-        }
-
-        .address-section {
-            text-align: right;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            margin-left: 40px;
-            margin-top: -20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .address-text {
-            display: block;
-            color: #4CAF50;
-            font-size: 14px;
-            margin-bottom: 4px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            text-align: right;
-        }
-
-        .address {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            color: #333;
-            justify-content: flex-end;
-        }
-
-        .address i {
-            color: #4CAF50;
-            font-size: 14px;
-            background: #e8f5e9;
-            padding: 6px;
-            border-radius: 50%;
-        }
-
-        .address a {
-            color: white;
-            text-decoration: none;
-            padding: 6px 12px;
-            border-radius: 15px;
-            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
-            font-weight: 500;
-            transition: all 0.3s ease;
-            font-size: 14px;
-        }
-
-        .phone-section {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 10px;
-        }
-
-        .phone-section:hover {
-            transform: translateY(-2px);
-        }
-
-        .phone-number {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 18px;
-            color: #333;
-            text-decoration: none;
-            transition: all 0.3s;
-            font-weight: 500;
-            margin-bottom: 10px;
-            padding: 5px 0;
-        }
-
-        .phone-number:hover {
-            color: #4CAF50;
-            transform: scale(1.02);
-        }
-
-        .phone-number i {
-            color: #4CAF50;
-            font-size: 18px;
-            background: #e8f5e9;
-            padding: 8px;
-            border-radius: 50%;
-            transition: all 0.3s;
-        }
-
-        .phone-number:hover i {
-            background: #4CAF50;
-            color: white;
-        }
-
         .container {
-            display: flex;
-            min-height: calc(100vh - 200px);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
         .block {
-            flex: 1;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            position: relative;
-            min-height: 400px;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
             margin-bottom: 30px;
-            border-radius: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
         }
 
         .block:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .block:nth-child(1) {
-            background-color: #f0f0f0;
-        }
-
-        .block:nth-child(1):hover {
-            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
-        }
-
-        .block:nth-child(2) {
-            background-color: #e0e0e0;
-        }
-
-        .block:nth-child(2):hover {
-            background: linear-gradient(135deg, #f0f8f0 0%, #d8ecd8 100%);
-        }
-
-        .block:nth-child(3) {
-            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-        }
-
-        .block:nth-child(3):hover {
-            background: linear-gradient(135deg, #f0f8f0 0%, #d8ecd8 100%);
-        }
-
-        .block:nth-child(4) {
-            background-color: #c0c0c0;
-        }
-
-        .block:nth-child(4):hover {
-            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
-        }
-
-        .nav-button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 10px 0;
-            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .nav-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-
-        .image-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            align-self: flex-start;
-        }
-
-        .before-after-img {
-            max-width: 25%;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            margin: 0;
-        }
-
-        .block-title {
-            font-size: 24px;
-            color: #333;
-            margin: 0 0 10px 0;
-            font-weight: 500;
-            align-self: flex-start;
-        }
-
-        .block-description {
-            align-self: flex-start;
-        }
-
-        .block:first-child {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 50%, #b9f6ca 100%);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .block-content h2 {
-            color: #1b5e20;
-            margin-bottom: 15px;
-            font-size: 28px;
-            text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
-        }
-
-        .block-description {
-            color: #2e2e2e;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
-        }
-
-        .highlight-text {
-            color: #1b5e20;
-            font-weight: 500;
-            text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
-        }
-
-        .block-content {
-            flex: 1;
-        }
-
-        .doctor-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 15px;
-            object-fit: cover;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            margin: 0 auto 30px;
-            display: block;
-        }
-
-        .doctor-image:hover {
-            transform: scale(1.02);
-        }
-
-        .content-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .text-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .services-list {
-            text-align: left;
-            display: inline-block;
-            margin: 15px auto;
         }
 
         .block h2 {
@@ -426,254 +159,185 @@
             border-radius: 2px;
         }
 
-        .news-block {
-            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
-            text-align: left;
+        .block-content {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
         }
 
-        .news-block h2 {
-            margin-bottom: 30px;
+        .doctor-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
 
-        .contact-block {
-            display: none;
+        .doctor-image:hover {
+            transform: scale(1.02);
         }
 
-        .block:nth-child(4) {
-            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+        .text-content {
+            flex: 1;
         }
 
-        .call-button {
-            display: inline-block;
+        .block-description {
+            color: #2e2e2e;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .services-list {
+            list-style: none;
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .services-list li {
+            margin-bottom: 10px;
+            color: #333;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .services-list li:before {
+            content: '✓';
+            color: #4CAF50;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .image-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .before-after-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .before-after-img:hover {
+            transform: scale(1.05);
+        }
+
+        .appointment-button {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
             color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 25px;
             text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 25px;
             font-weight: 500;
-            font-size: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(76, 175, 80, 0.2);
-            cursor: pointer;
-            margin-bottom: 0;
-            width: auto;
-            min-width: 160px;
-            text-align: center;
-            margin-top: 25px;
+            margin-top: 20px;
+            display: inline-flex;
         }
 
-        .call-button:hover {
+        .appointment-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
             background: linear-gradient(135deg, #45a049 0%, #1b5e20 100%);
-        }
-
-        .call-button i {
-            margin-right: 8px;
-        }
-
-        .section-title {
-            text-align: left;
-            font-size: 32px;
-            color: #2E7D32;
-            margin-bottom: 30px;
-            margin-left: 30px;
-            font-weight: 600;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
-            border-radius: 2px;
-            transform: none;
-        }
-
-        .appointment-container {
-            margin-top: 0;
-        }
-
-        .appointment-section {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 30px;
-            margin-left: auto;
         }
 
         .callback-button {
             display: flex;
             align-items: center;
             gap: 8px;
-            background: linear-gradient(135deg, #FF5722 0%, #E64A19 100%);
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
             color: white;
             border: none;
             padding: 12px 24px;
             border-radius: 25px;
             font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             cursor: pointer;
+            transition: all 0.3s ease;
             font-size: 15px;
-            width: 100%;
+            margin-bottom: 10px;
         }
 
         .callback-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(255, 87, 34, 0.3);
-            background: linear-gradient(135deg, #F4511E 0%, #D84315 100%);
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            background: linear-gradient(135deg, #45a049 0%, #1b5e20 100%);
         }
 
-        .callback-button i {
-            font-size: 16px;
-        }
-
-        .phone-section {
+        .phone-number {
             display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 10px;
-        }
-
-        .contact-section {
-            margin-bottom: 20px;
-        }
-
-        .contact-info {
-            display: flex;
-            gap: 30px;
-            align-items: flex-start;
-        }
-
-        .contact-item {
-            display: flex;
-            flex-direction: column;
             align-items: center;
-            text-align: center;
-            gap: 5px;
-        }
-
-        .contact-item i {
-            color: #4CAF50;
-            font-size: 20px;
-            margin-bottom: 5px;
-        }
-
-        .contact-item h3 {
-            margin: 0;
-            font-size: 14px;
-            color: #666;
-        }
-
-        .contact-item p {
-            margin: 0;
-            font-size: 14px;
-            color: #333;
-        }
-
-        .contact-item a {
+            gap: 10px;
+            font-size: 18px;
             color: #333;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s;
+            font-weight: 500;
         }
 
-        .contact-item a:hover {
+        .phone-number:hover {
             color: #4CAF50;
         }
 
-        @media screen and (max-width: 768px) {
-            .header {
-                height: auto;
-                padding: 15px;
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .logo-section {
-                flex-direction: column;
-                width: 100%;
-                gap: 15px;
-            }
-
-            .logo {
-                width: 100px;
-                height: 100px;
-            }
-
-            .search-container {
-                flex-direction: column;
-                width: 100%;
-                gap: 10px;
-            }
-
-            .search-input {
-                width: 100%;
-                box-sizing: border-box;
-            }
-
-            .appointment-button {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .header-right {
-                flex-direction: column;
-                width: 100%;
-                gap: 15px;
-            }
-
-            .address-section,
-            .hours-section,
-            .phone-section {
-                width: 100%;
-                text-align: center;
-                padding: 10px 0;
-            }
-
-            .address,
-            .hours,
-            .phone-number {
-                justify-content: center;
-            }
-
-            .container {
-                flex-direction: column;
-                min-height: auto;
-            }
-
-            .block {
-                padding: 30px 15px;
-            }
-
-            .nav-button {
-                width: 100%;
-                text-align: center;
-                justify-content: center;
-            }
-
-            .block:first-child {
-                flex-direction: column;
-                text-align: center;
-                padding: 20px;
-            }
-
-            .doctor-image {
-                width: 180px;
-                height: 180px;
-                margin-bottom: 20px;
-            }
+        .phone-number i {
+            color: #4CAF50;
+            font-size: 18px;
+            background: #e8f5e9;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.3s;
         }
 
-        /* Стили для модального окна */
+        .phone-number:hover i {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .address-section {
+            margin-bottom: 15px;
+        }
+
+        .address {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .address i {
+            color: #4CAF50;
+            font-size: 18px;
+            background: #e8f5e9;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .address a {
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .address:hover i {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .address:hover a {
+            color: #4CAF50;
+        }
+
         .modal {
             display: none;
             position: fixed;
@@ -682,32 +346,22 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
             z-index: 1000;
-            animation: fadeIn 0.3s ease;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .modal.active {
+            display: flex;
         }
 
         .modal-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             background: white;
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             width: 90%;
             max-width: 400px;
-            animation: slideIn 0.3s ease;
-        }
-
-        @keyframes slideIn {
-            from { transform: translate(-50%, -60%); opacity: 0; }
-            to { transform: translate(-50%, -50%); opacity: 1; }
+            position: relative;
         }
 
         .modal-header {
@@ -717,31 +371,12 @@
 
         .modal-header h3 {
             color: #2E7D32;
-            font-size: 24px;
             margin: 0;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
             font-size: 24px;
-            color: #999;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .modal-close:hover {
-            color: #2E7D32;
-        }
-
-        .callback-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
         }
 
         .form-group {
+            margin-bottom: 20px;
             position: relative;
         }
 
@@ -780,23 +415,388 @@
         }
 
         .submit-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
             background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
             color: white;
             border: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 16px;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
+            font-size: 15px;
+            width: 100%;
+            margin-top: 10px;
         }
 
         .submit-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            background: linear-gradient(135deg, #45a049 0%, #1b5e20 100%);
         }
 
-        .submit-button:active {
-            transform: translateY(0);
+        .news-block {
+            margin: 40px 0;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-item {
+            margin-bottom: 30px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .news-content {
+            padding: 20px;
+        }
+
+        .news-title {
+            color: #2E7D32;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .news-description {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .news-item {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-date {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .news-date i {
+            color: #4CAF50;
+        }
+
+        .news-title {
+            color: #1b5e20;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .news-content {
+            color: #333;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .news-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: #4CAF50;
+            text-decoration: none;
+            margin-top: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .news-link:hover {
+            color: #2E7D32;
+            gap: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                padding: 15px;
+            }
+
+            .logo-section {
+                margin-right: 0;
+                width: 100%;
+                justify-content: center;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-right {
+                width: 100%;
+                align-items: center;
+            }
+
+            .phone-section {
+                align-items: center;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .block-content {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            .image-side {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .text-content {
+                width: 100%;
+                padding: 0;
+            }
+
+            .block-description {
+                font-size: 14px;
+                line-height: 1.5;
+                margin-bottom: 15px;
+            }
+
+            .features {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .feature {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .services-list {
+                padding-left: 15px;
+            }
+
+            .services-list li {
+                font-size: 14px;
+                margin-bottom: 8px;
+            }
+        }
+
+        .appointment-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-top: -20px;
+        }
+
+        .appointment-button {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            display: inline-flex;
+        }
+
+        .appointment-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            background: linear-gradient(135deg, #45a049 0%, #1b5e20 100%);
+        }
+
+        .main-block {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+        }
+
+        .image-side {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .image-badges {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 10px;
+            border-radius: 10px;
+            background: #e8f5e9;
+            color: #2E7D32;
+        }
+
+        .badge i {
+            font-size: 16px;
+        }
+
+        .highlight {
+            font-weight: 500;
+            color: #1b5e20;
+        }
+
+        .emphasis {
+            font-weight: 500;
+            color: #2E7D32;
+        }
+
+        .services-section {
+            margin-top: 20px;
+        }
+
+        .services-list li {
+            padding-left: 30px;
+        }
+
+        .services-list li i {
+            font-size: 16px;
+            color: #4CAF50;
+            margin-right: 10px;
+        }
+
+        .features {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            background: #e8f5e9;
+            color: #2E7D32;
+        }
+
+        .feature i {
+            font-size: 18px;
+        }
+
+        .portfolio-block {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 40px 20px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            aspect-ratio: 4/3;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 15px;
+            }
+        }
+
+        .price-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .price-description {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .price-amount {
+            font-weight: bold;
+            color: #2E7D32;
+            font-size: 1.2em;
+            white-space: nowrap;
+        }
+
+        .service-name {
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .service-details {
+            font-size: 0.9em;
+            color: #666;
         }
     </style>
 </head>
@@ -813,15 +813,6 @@
                 </div>
             </div>
             <div class="appointment-section">
-                <div class="address-section">
-                    <span class="address-text">Адрес</span>
-                    <div class="address">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <a href="https://www.google.com/maps/place/«на+Цветном»+подологи/data=!4m7!3m6!1s0x46b54b433fe91c23:0x586a15aaedf17096!8m2!3d55.7717539!4d37.6190756!16s%2Fg%2F11vbd__49w!19sChIJIxzpP0NLtUYRlnDx7aoValg?authuser=0&hl=ru&rclk=1" target="_blank">
-                            Цветной Бульвар, д.19, стр.4
-                        </a>
-                    </div>
-                </div>
                 <a href="https://n1239652.yclients.com/" target="_blank" class="appointment-button" title="Записаться на приём">
                     <i class="fas fa-calendar-plus"></i>
                     Записаться
@@ -830,6 +821,14 @@
         </div>
         <div class="header-right">
             <div class="header-info">
+                <div class="address-section">
+                    <div class="address">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <a href="https://www.google.com/maps/place/«на+Цветном»+подологи/data=!4m7!3m6!1s0x46b54b433fe91c23:0x586a15aaedf17096!8m2!3d55.7717539!4d37.6190756!16s%2Fg%2F11vbd__49w!19sChIJIxzpP0NLtUYRlnDx7aoValg?authuser=0&hl=ru&rclk=1" target="_blank">
+                            Цветной Бульвар, д.19, стр.4
+                        </a>
+                    </div>
+                </div>
                 <div class="phone-section">
                     <button class="callback-button">
                         <i class="fas fa-phone-alt"></i>
@@ -844,65 +843,189 @@
         </div>
     </div>
     <div class="container">
-        <div class="block">
+        <div class="block main-block">
+            <h2>Подолог</h2>
             <div class="block-content">
-                <h2>Подолог</h2>
-                <div class="content-wrapper">
+                <div class="image-side">
                     <img src="doctor.jpg" alt="Профессиональный подолог" class="doctor-image">
-                    <div class="text-content">
-                        <p class="block-description">
-                            Добро пожаловать в наш кабинет подолога «на Цветном», где здоровье и красота ваших ног - наша первостепенная задача! Мы гордимся, что предоставляем высококачественные подологические услуги, которые помогут Вам чувствовать себя уверенно и комфортно.
-                        </p>
-                        <p class="block-description">
-                            У нас работают только <span class="highlight-text">высокопрофессиональные специалисты с большим опытом</span>, которые постоянно совершенствуют свои знания и навыки.
-                        </p>
+                    <div class="image-badges">
+                        <span class="badge">
+                            <i class="fas fa-certificate"></i>
+                            Сертифицированный специалист
+                        </span>
+                        <span class="badge">
+                            <i class="fas fa-star"></i>
+                            Опыт более 5 лет
+                        </span>
+                    </div>
+                </div>
+                <div class="text-content">
+                    <p class="block-description highlight">
+                        Добро пожаловать в наш кабинет подолога «на Цветном», где здоровье и красота ваших ног - наша первостепенная задача!
+                    </p>
+                    <p class="block-description">
+                        Мы гордимся, что предоставляем высококачественные подологические услуги, которые помогут Вам чувствовать себя уверенно и комфортно.
+                    </p>
+                    <p class="block-description emphasis">
+                        У нас работают только высокопрофессиональные специалисты с большим опытом, которые постоянно совершенствуют свои знания и навыки.
+                    </p>
+                    <div class="services-section">
                         <p class="block-description">В перечень наших услуг входит:</p>
                         <ul class="services-list">
-                            <li>Лечение и профилактика вросших ногтей</li>
-                            <li>Комплексный уход за ногтями и стопой</li>
-                            <li>Удаление мозолей и натоптышей</li>
-                            <li>Консультация и индивидуальные рекомендации по домашнему уходу</li>
-                            <li>Коррекция деформации ногтей и стоп</li>
+                            <li><i class="fas fa-check-circle"></i>Лечение и профилактика вросших ногтей</li>
+                            <li><i class="fas fa-check-circle"></i>Комплексный уход за ногтями и стопой</li>
+                            <li><i class="fas fa-check-circle"></i>Удаление мозолей и натоптышей</li>
+                            <li><i class="fas fa-check-circle"></i>Консультация и индивидуальные рекомендации</li>
+                            <li><i class="fas fa-check-circle"></i>Коррекция деформации ногтей и стоп</li>
                         </ul>
-                        <p class="block-description">
-                            Современные методы и безопасные материалы, гарантия наилучшего результата.
-                        </p>
+                    </div>
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Безопасные материалы</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-clock"></i>
+                            <span>Быстрый результат</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-heart"></i>
+                            <span>Забота о клиентах</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="block news-block">
-            <h2>Новости</h2>
-            <p class="block-description"></p>
-        </div>
-        <div class="block" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);">
+        <div class="block portfolio-block">
             <h2 class="section-title">Наши работы</h2>
-            <div class="image-container">
-                <img src="before-after.jpg" alt="До лечения" class="before-after-img">
-                <img src="before-after-3.jpg" alt="Процесс лечения" class="before-after-img">
-                <img src="before-after-2.jpg" alt="Процесс лечения" class="before-after-img">
-                <img src="before-after-4.jpg" alt="После лечения" class="before-after-img">
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="photos/111d2e42-825c-429b-b144-fd0d7da039a6.jpg" alt="Пример нашей работы" class="portfolio-image">
+                </div>
+                <div class="portfolio-item">
+                    <img src="photos/340aeef0-a043-4955-9da2-212c8fcbafbf.jpg" alt="Пример нашей работы" class="portfolio-image">
+                </div>
+                <div class="portfolio-item">
+                    <img src="photos/8abaa5a1-d035-4a8b-b85b-6bb51fc14e3f.jpg" alt="Пример нашей работы" class="portfolio-image">
+                </div>
+                <div class="portfolio-item">
+                    <img src="photos/9925b97a-d4c7-4101-b600-ff3b5c54395a.jpg" alt="Пример нашей работы" class="portfolio-image">
+                </div>
+                <div class="portfolio-item">
+                    <img src="photos/a90a4ae1-8a65-4fb1-84ef-02ec2626acc1.jpg" alt="Пример нашей работы" class="portfolio-image">
+                </div>
+                <div class="portfolio-item">
+                    <img src="photos/b48202c2-70a6-419e-809b-85f2a54362d9.jpg" alt="Пример нашей работы" class="portfolio-image">
+                </div>
+                <div class="portfolio-item">
+                    <img src="photos/bd8fe53d-506f-409a-bdea-4452d54db767.jpg" alt="Пример нашей работы" class="portfolio-image">
+                </div>
+                <div class="portfolio-item">
+                    <img src="photos/c287fbd6-6037-4941-a66d-58bd100df01c.jpg" alt="Пример нашей работы" class="portfolio-image">
+                </div>
+                <div class="portfolio-item">
+                    <img src="photos/eb0e7ca0-405b-416f-8743-c88976f69c67.jpg" alt="Пример нашей работы" class="portfolio-image">
+                </div>
             </div>
-            <p class="block-description"></p>
+        </div>
+        <div class="block news-block">
+            <h2 class="section-title">Новости и акции</h2>
+            <div class="news-grid">
+                <div class="news-item">
+                    <img src="december-promo.jpg" alt="Декабрьская акция" class="news-image">
+                    <div class="news-content">
+                        <h3 class="news-title">Специальное предложение в декабре!</h3>
+                        <p class="news-description">Только в декабре: приходите сами и приводите друзей! Скидка 40% для вас, вашей семьи и друзей. Не упустите возможность получить профессиональный уход по выгодной цене.</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="block" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);">
             <h2 class="section-title">Прайс</h2>
-            <p class="block-description"></p>
-        </div>
-        <div class="block contact-block">
-            <h2>Контакты</h2>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Адрес</h3>
-                    <p>г. Москва, Цветной бульвар, д. 19, стр. 4</p>
-                </div>   
+            <ul class="price-list">
+                <li class="price-item">
+                    <div class="price-description">
+                        <div class="service-name">Консультация специалиста и осмотр</div>
+                        <div class="service-details">(без проведения процедур)</div>
+                    </div>
+                    <div class="price-amount">2000₽</div>
+                </li>
+                <li class="price-item">
+                    <div class="price-description">
+                        <div class="service-name">Подологический педикюр 1-ой категории</div>
+                        <div class="service-details">(обработка ногтей и стопы без выраженного гиперкератоза и грибковых заболеваний)</div>
+                    </div>
+                    <div class="price-amount">3500₽</div>
+                </li>
+                <li class="price-item">
+                    <div class="price-description">
+                        <div class="service-name">Подологический педикюр 2-ой категории</div>
+                        <div class="service-details">(обработка ногтей и стопы с выраженным гиперкератозом, Грибковые заболевания ногтей и стопы)</div>
+                    </div>
+                    <div class="price-amount">4000₽</div>
+                </li>
+                <li class="price-item">
+                    <div class="price-description">
+                        <div class="service-name">Подологический педикюр 3-й категории</div>
+                        <div class="service-details">(Гигиеническая обработка диабетической стопы, онихогрифоз, тотальный онихомикоз, грибковое поражение стопы)</div>
+                    </div>
+                    <div class="price-amount">5000₽</div>
+                </li>
+                <li class="price-item">
+                    <div class="price-description">
+                        <div class="service-name">Обработка одного ногтя</div>
+                        <div class="service-details">(грибковое поражение, синегнойка, онихогрифоз...)</div>
+                    </div>
+                    <div class="price-amount">2000₽</div>
+                </li>
+                <li class="price-item">
+                    <div class="price-description">
+                        <div class="service-name">Обработка стержневой мозоли</div>
+                    </div>
+                    <div class="price-amount">от 1500₽</div>
+                </li>
+                <li class="price-item">
+                    <div class="price-description">
+                        <div class="service-name">Установка коррекционной системы</div>
+                    </div>
+                    <div class="price-amount">3500₽</div>
+                </li>
+                <li class="price-item">
+                    <div class="price-description">
+                        <div class="service-name">Удаление сегмента вросшего ногтя, обработка и перевязка</div>
+                    </div>
+                    <div class="price-amount">2500₽</div>
+                </li>
+                <li class="price-item">
+                    <div class="price-description">
+                        <div class="service-name">Удаление мозолей и натоптышей</div>
+                    </div>
+                    <div class="price-amount">1500₽</div>
+                </li>
+                <li class="price-item">
+                    <div class="price-description">
+                        <div class="service-name">Удаление бородавок азотной кислотой</div>
+                    </div>
+                    <div class="price-amount">от 600₽</div>
+                </li>
+                <li class="price-item">
+                    <div class="price-description">
+                        <div class="service-name">Перевязка, тейпирование (композит), окклюзия</div>
+                    </div>
+                    <div class="price-amount">500₽</div>
+                </li>
+                <li class="price-item">
+                    <div class="price-description">
+                        <div class="service-name">Протезирование ногтевой пластины</div>
+                    </div>
+                    <div class="price-amount">3500₽</div>
+                </li>
+            </ul>
         </div>
     </div>
     <!-- Модальное окно для заказа звонка -->
     <div id="callbackModal" class="modal">
         <div class="modal-content">
-            <span class="modal-close">&times;</span>
             <div class="modal-header">
                 <h3>Заказать обратный звонок</h3>
             </div>
@@ -915,7 +1038,10 @@
                     <input type="tel" id="phone" required placeholder=" ">
                     <label for="phone">Номер телефона</label>
                 </div>
-                <button type="submit" class="submit-button">Заказать звонок</button>
+                <button type="submit" class="submit-button">
+                    <i class="fas fa-phone-alt"></i>
+                    Заказать звонок
+                </button>
             </form>
         </div>
     </div>
@@ -928,15 +1054,12 @@
 
             function performSearch() {
                 const searchTerm = searchInput.value.toLowerCase();
-                
                 blocks.forEach(block => {
                     const text = block.textContent.toLowerCase();
                     const parent = block.closest('.block');
-                    
                     if (text.includes(searchTerm)) {
                         if (parent) {
                             parent.style.display = 'flex';
-                            // Подсветка найденного текста
                             const regex = new RegExp(searchTerm, 'gi');
                             block.innerHTML = block.textContent.replace(regex, match => 
                                 `<span style="background-color: #e8f5e9; color: #2E7D32; padding: 0 2px; border-radius: 3px;">${match}</span>`
@@ -957,7 +1080,6 @@
                 }
             });
 
-            // Сброс поиска при пустом поле
             searchInput.addEventListener('input', function() {
                 if (this.value === '') {
                     blocks.forEach(block => {
@@ -972,68 +1094,49 @@
 
             const modal = document.getElementById('callbackModal');
             const callbackButtons = document.querySelectorAll('.callback-button');
-            const closeBtn = document.querySelector('.modal-close');
-            const form = document.getElementById('callbackForm');
+            const callbackForm = document.getElementById('callbackForm');
 
-            // Открытие модального окна при клике на кнопку
             callbackButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    modal.style.display = 'block';
-                    document.body.style.overflow = 'hidden'; // Блокируем прокрутку
+                button.addEventListener('click', () => {
+                    modal.classList.add('active');
                 });
             });
 
-            // Закрытие модального окна при клике на крестик
-            closeBtn.addEventListener('click', function() {
-                modal.style.display = 'none';
-                document.body.style.overflow = ''; // Возвращаем прокрутку
-            });
-
-            // Закрытие модального окна при клике вне его
-            window.addEventListener('click', function(event) {
-                if (event.target == modal) {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = '';
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
                 }
             });
 
-            // Обработка отправки формы
-            form.addEventListener('submit', async function(e) {
+            callbackForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 const name = document.getElementById('name').value;
                 const phone = document.getElementById('phone').value;
+
+                const submitButton = callbackForm.querySelector('.submit-button');
+                submitButton.disabled = true;
+                submitButton.style.opacity = '0.7';
                 
-                const BOT_TOKEN = '7875207475:AAHGhqBu8SWt-COfJA43WKH92cegu5HMuOU';
-                const CHAT_ID = '-1002351032302';
-
                 try {
-                    const message = `🔔 Новая заявка на обратный звонок!\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n\n📅 Дата: ${new Date().toLocaleString()}`;
-                    const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({
-                            chat_id: CHAT_ID,
-                            text: message
-                        })
-                    });
-
-                    if (response.ok) {
-                        console.log('Сообщение успешно отправлено');
+                    const success = await window.sendTelegramMessage(name, phone);
+                    if (success) {
                         alert('Спасибо! Мы перезвоним вам в ближайшее время.');
-                        form.reset();
-                        modal.style.display = 'none';
-                        document.body.style.overflow = '';
+                        callbackForm.reset();
+                        modal.classList.remove('active');
                     } else {
                         throw new Error('Ошибка отправки');
                     }
                 } catch (error) {
                     console.error('Ошибка при отправке сообщения:', error);
                     alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже или свяжитесь с нами по телефону.');
+                } finally {
+                    submitButton.disabled = false;
+                    submitButton.style.opacity = '1';
                 }
             });
         });
     </script>
+    <script src="js/secure.js"></script>
+    <script src="modal.js"></script>
 </body>
 </html>
