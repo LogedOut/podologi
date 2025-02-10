@@ -189,6 +189,38 @@
             font-size: 16px;
         }
 
+        .news-block .block-content {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .news-content {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .news-item {
+            background: rgba(232, 245, 233, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .news-item h3 {
+            color: #1b5e20;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .news-item .block-description {
+            margin-bottom: 10px;
+        }
+
+        .news-item:last-child {
+            margin-bottom: 0;
+        }
+
         .services-list {
             list-style: none;
             margin: 15px 0;
@@ -896,6 +928,14 @@
                 </div>
             </div>
         </div>
+        <div class="block news-block">
+            <h2 class="section-title">Акция</h2>
+            <div class="block-content">
+                <div class="promo-image">
+                    <img src="december-promo.jpg" alt="Декабрьская акция" style="width: 100%; max-width: 500px; border-radius: 10px;">
+                </div>
+            </div>
+        </div>
         <div class="block portfolio-block">
             <h2 class="section-title">Наши работы</h2>
             <div class="portfolio-grid">
@@ -925,18 +965,6 @@
                 </div>
                 <div class="portfolio-item">
                     <img src="photos/eb0e7ca0-405b-416f-8743-c88976f69c67.jpg" alt="Пример нашей работы" class="portfolio-image">
-                </div>
-            </div>
-        </div>
-        <div class="block news-block">
-            <h2 class="section-title">Новости и акции</h2>
-            <div class="news-grid">
-                <div class="news-item">
-                    <img src="december-promo.jpg" alt="Декабрьская акция" class="news-image">
-                    <div class="news-content">
-                        <h3 class="news-title">Специальное предложение в декабре!</h3>
-                        <p class="news-description">Только в декабре: приходите сами и приводите друзей! Скидка 40% для вас, вашей семьи и друзей. Не упустите возможность получить профессиональный уход по выгодной цене.</p>
-                    </div>
                 </div>
             </div>
         </div>
