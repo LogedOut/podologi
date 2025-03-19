@@ -189,6 +189,38 @@
             font-size: 16px;
         }
 
+        .news-block .block-content {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .news-content {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .news-item {
+            background: rgba(232, 245, 233, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .news-item h3 {
+            color: #1b5e20;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .news-item .block-description {
+            margin-bottom: 10px;
+        }
+
+        .news-item:last-child {
+            margin-bottom: 0;
+        }
+
         .services-list {
             list-style: none;
             margin: 15px 0;
@@ -824,8 +856,8 @@
                 <div class="address-section">
                     <div class="address">
                         <i class="fas fa-map-marker-alt"></i>
-                        <a href="https://www.google.com/maps/place/«на+Цветном»+подологи/data=!4m7!3m6!1s0x46b54b433fe91c23:0x586a15aaedf17096!8m2!3d55.7717539!4d37.6190756!16s%2Fg%2F11vbd__49w!19sChIJIxzpP0NLtUYRlnDx7aoValg?authuser=0&hl=ru&rclk=1" target="_blank">
-                            Цветной Бульвар, д.19, стр.4
+                        <a href="https://yandex.ru/maps/org/na_tsvetnom/118631166183/?ll=37.579120%2C55.758931&z=20.13" target="_blank">
+                            ул.Конюшковская, д.28, подъезд 3
                         </a>
                     </div>
                 </div>
@@ -896,6 +928,14 @@
                 </div>
             </div>
         </div>
+        <div class="block news-block">
+            <h2 class="section-title">Акция</h2>
+            <div class="block-content">
+                <div class="promo-image">
+                    <img src="december-promo.jpg" alt="Декабрьская акция" style="width: 100%; max-width: 500px; border-radius: 10px;">
+                </div>
+            </div>
+        </div>
         <div class="block portfolio-block">
             <h2 class="section-title">Наши работы</h2>
             <div class="portfolio-grid">
@@ -925,18 +965,6 @@
                 </div>
                 <div class="portfolio-item">
                     <img src="photos/eb0e7ca0-405b-416f-8743-c88976f69c67.jpg" alt="Пример нашей работы" class="portfolio-image">
-                </div>
-            </div>
-        </div>
-        <div class="block news-block">
-            <h2 class="section-title">Новости и акции</h2>
-            <div class="news-grid">
-                <div class="news-item">
-                    <img src="december-promo.jpg" alt="Декабрьская акция" class="news-image">
-                    <div class="news-content">
-                        <h3 class="news-title">Специальное предложение в декабре!</h3>
-                        <p class="news-description">Только в декабре: приходите сами и приводите друзей! Скидка 40% для вас, вашей семьи и друзей. Не упустите возможность получить профессиональный уход по выгодной цене.</p>
-                    </div>
                 </div>
             </div>
         </div>
