@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>На Цветном Подологи</title>
+    <title>Подолог на Красной Пресне</title>
     <link rel="icon" type="image/png" href="logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -830,6 +830,435 @@
             font-size: 0.9em;
             color: #666;
         }
+
+        .reviews-block {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+        }
+
+        .reviews-content {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .reviews-text {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .reviews-description {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .yandex-reviews-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .yandex-reviews-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            background: linear-gradient(135deg, #45a049 0%, #1b5e20 100%);
+            gap: 12px;
+        }
+
+        .reviews-links-section {
+            margin: 20px 0;
+        }
+
+        .platform-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .platform-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .platform-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .platform-header i {
+            font-size: 24px;
+            color: #4CAF50;
+        }
+
+        .yandex-card .platform-header i {
+            color: #FFB300;
+        }
+
+        .platform-header h3 {
+            margin: 0;
+            color: #2E7D32;
+            font-size: 18px;
+            font-weight: 500;
+            flex: 1;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .rating i {
+            color: #FFD700;
+            font-size: 14px;
+        }
+
+        .rating span {
+            font-weight: bold;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .platform-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .platform-content p {
+            margin: 0 0 15px 0;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .platform-action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .yandex-card .platform-action-btn {
+            background: linear-gradient(135deg, #FFCC00 0%, #FFB300 100%);
+        }
+
+        .platform-action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+            gap: 12px;
+        }
+
+        .yandex-card .platform-action-btn:hover {
+            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+        }
+
+        .platform-action-btn i {
+            font-size: 14px;
+        }
+
+        .reviews-showcase {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .review-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .review-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .reviewer-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e8f5e9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4CAF50;
+            font-size: 16px;
+        }
+
+        .reviewer-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .reviewer-name {
+            font-weight: 500;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .review-date {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .review-rating {
+            display: flex;
+            gap: 2px;
+        }
+
+        .review-rating i {
+            color: #FFD700;
+            font-size: 14px;
+        }
+
+        .review-content {
+            color: #555;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        .review-content p {
+            margin: 0;
+        }
+
+        .review-links {
+            margin-top: 25px;
+        }
+
+        .platform-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .platform-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .yandex-link {
+            background: linear-gradient(135deg, #FFCC00 0%, #FFB300 100%);
+        }
+
+        .yandex-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+            gap: 12px;
+        }
+
+        .two-gis-link {
+            background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 100%);
+        }
+
+        .two-gis-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+            gap: 12px;
+        }
+
+        .platform-link i {
+            font-size: 16px;
+        }
+
+        .platform-link i:last-child {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .reviews-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 25px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-item i {
+            font-size: 28px;
+            color: #4CAF50;
+            margin-bottom: 5px;
+        }
+
+        .stat-number {
+            font-size: 26px;
+            font-weight: bold;
+            color: #2E7D32;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .reviews-stats {
+                grid-template-columns: 1fr;
+                max-width: 300px;
+                margin: 10px auto 0;
+            }
+
+            .platform-cards {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .platform-header {
+                padding: 15px;
+                gap: 10px;
+            }
+
+            .platform-header i {
+                font-size: 20px;
+            }
+
+            .platform-header h3 {
+                font-size: 16px;
+            }
+
+            .rating {
+                padding: 4px 8px;
+            }
+
+            .rating i {
+                font-size: 12px;
+            }
+
+            .rating span {
+                font-size: 12px;
+            }
+
+            .platform-content {
+                padding: 15px;
+            }
+
+            .platform-content p {
+                font-size: 14px;
+            }
+
+            .platform-action-btn {
+                padding: 10px 16px;
+                font-size: 14px;
+            }
+
+            .reviews-showcase {
+                gap: 15px;
+                margin: 15px 0;
+            }
+
+            .review-card {
+                padding: 15px;
+            }
+
+            .review-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .reviewer-info {
+                gap: 10px;
+            }
+
+            .reviewer-avatar {
+                width: 35px;
+                height: 35px;
+                font-size: 14px;
+            }
+
+            .review-content {
+                font-size: 13px;
+            }
+
+            .platform-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .platform-link {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+
+            .reviews-text {
+                padding: 0 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -892,7 +1321,7 @@
                 </div>
                 <div class="text-content">
                     <p class="block-description highlight">
-                        Добро пожаловать в наш кабинет подолога «на Цветном», где здоровье и красота ваших ног - наша первостепенная задача!
+                        Добро пожаловать в наш кабинет подолога «на Красном Пресне», где здоровье и красота ваших ног - наша первостепенная задача!
                     </p>
                     <p class="block-description">
                         Мы гордимся, что предоставляем высококачественные подологические услуги, которые помогут Вам чувствовать себя уверенно и комфортно.
@@ -988,64 +1417,58 @@
                         <div class="service-name">Подологический педикюр 1-ой категории</div>
                         <div class="service-details">(обработка ногтей и стопы без выраженного гиперкератоза и грибковых заболеваний)</div>
                     </div>
-                    <div class="price-amount">3500₽</div>
+                    <div class="price-amount">5000₽</div>
                 </li>
                 <li class="price-item">
                     <div class="price-description">
                         <div class="service-name">Подологический педикюр 2-ой категории</div>
                         <div class="service-details">(обработка ногтей и стопы с выраженным гиперкератозом, Грибковые заболевания ногтей и стопы)</div>
                     </div>
-                    <div class="price-amount">4000₽</div>
+                    <div class="price-amount">5500₽</div>
                 </li>
                 <li class="price-item">
                     <div class="price-description">
                         <div class="service-name">Подологический педикюр 3-й категории</div>
                         <div class="service-details">(Гигиеническая обработка диабетической стопы, онихогрифоз, тотальный онихомикоз, грибковое поражение стопы)</div>
                     </div>
-                    <div class="price-amount">5000₽</div>
+                    <div class="price-amount">6000₽</div>
                 </li>
                 <li class="price-item">
                     <div class="price-description">
                         <div class="service-name">Обработка одного ногтя</div>
                         <div class="service-details">(грибковое поражение, синегнойка, онихогрифоз...)</div>
                     </div>
-                    <div class="price-amount">2000₽</div>
+                    <div class="price-amount">3000₽</div>
                 </li>
                 <li class="price-item">
                     <div class="price-description">
                         <div class="service-name">Обработка стержневой мозоли</div>
                     </div>
-                    <div class="price-amount">от 1500₽</div>
+                    <div class="price-amount">от 1000₽ до 5000₽</div>
                 </li>
                 <li class="price-item">
                     <div class="price-description">
                         <div class="service-name">Установка коррекционной системы</div>
                     </div>
-                    <div class="price-amount">3500₽</div>
+                    <div class="price-amount">4500₽</div>
                 </li>
                 <li class="price-item">
                     <div class="price-description">
                         <div class="service-name">Удаление сегмента вросшего ногтя, обработка и перевязка</div>
                     </div>
-                    <div class="price-amount">2500₽</div>
+                    <div class="price-amount">4500₽</div>
                 </li>
                 <li class="price-item">
                     <div class="price-description">
                         <div class="service-name">Удаление мозолей и натоптышей</div>
                     </div>
-                    <div class="price-amount">1500₽</div>
+                    <div class="price-amount">От 1000₽ до 5000₽</div>
                 </li>
                 <li class="price-item">
                     <div class="price-description">
                         <div class="service-name">Удаление бородавок азотной кислотой</div>
                     </div>
-                    <div class="price-amount">от 600₽</div>
-                </li>
-                <li class="price-item">
-                    <div class="price-description">
-                        <div class="service-name">Перевязка, тейпирование (композит), окклюзия</div>
-                    </div>
-                    <div class="price-amount">500₽</div>
+                    <div class="price-amount">от 1000₽</div>
                 </li>
                 <li class="price-item">
                     <div class="price-description">
@@ -1054,6 +1477,70 @@
                     <div class="price-amount">3500₽</div>
                 </li>
             </ul>
+        </div>
+        <div class="block reviews-block">
+            <h2>Отзывы наших клиентов</h2>
+            <div class="reviews-content">
+                <div class="reviews-text">
+                    <p class="reviews-description">
+                        Мы ценим каждого нашего клиента и рады поделиться их отзывами о наших услугах. 
+                        Ваши отзывы помогают нам становиться лучше!
+                    </p>
+                                    </div>
+                <div class="reviews-links-section">
+                    <div class="platform-cards">
+                        <div class="platform-card yandex-card">
+                            <div class="platform-header">
+                                <i class="fab fa-yandex"></i>
+                                <h3>Яндекс Карты</h3>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.6+</span>
+                                </div>
+                            </div>
+                            <div class="platform-content">
+                                <p>Читайте реальные отзывы клиентов на Яндекс Картах</p>
+                                <a href="https://yandex.com/maps/org/legko_shagat/118631166183/reviews/?ll=37.579342%2C55.758919&z=20.15" 
+                                   target="_blank" class="platform-action-btn">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Перейти к отзывам
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="platform-card two-gis-card">
+                            <div class="platform-header">
+                                <i class="fas fa-map-marked-alt"></i>
+                                <h3>2ГИС</h3>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>5.0</span>
+                                </div>
+                            </div>
+                            <div class="platform-content">
+                                <p>Отзывы и оценки на сервисе 2ГИС</p>
+                                <a href="https://2gis.ru/moscow/inside/4504235282737136/firm/70000001079108300/tab/reviews?m=37.579017%2C55.758861%2F20" 
+                                   target="_blank" class="platform-action-btn">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Перейти к отзывам
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="reviews-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-star"></i>
+                        <span class="stat-number">4.6+</span>
+                        <span class="stat-label">Средняя оценка</span>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-heart"></i>
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Рекомендуют</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Модальное окно для заказа звонка -->
