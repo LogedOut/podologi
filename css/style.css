@@ -1843,3 +1843,12 @@ html, body {
     }
 }
 
+
+/* Video in News card styled like seamless GIF */
+.news-media video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+    pointer-events: none !important; /* Отключаем вызов контекстного меню видео */
+}
