@@ -1386,3 +1386,45 @@ html {
         font-size: 1.4rem;
     }
 }
+
+/* Fix map container on mobile to prevent overflow */
+.contacts-block, .contacts-wrapper {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.map-container {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    border-radius: var(--radius-md);
+}
+
+.map-container iframe {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+    .contacts-block {
+        padding: 20px 14px !important;
+    }
+    .contacts-wrapper {
+        gap: 20px !important;
+    }
+    .contacts-info-card {
+        padding: 18px 14px !important;
+    }
+    .map-container {
+        height: 280px !important;
+        min-height: 280px !important;
+    }
+    .map-container iframe {
+        height: 280px !important;
+        min-height: 280px !important;
+    }
+}
