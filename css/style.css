@@ -1428,3 +1428,68 @@ html {
         min-height: 280px !important;
     }
 }
+
+/* === GLOBAL OVERFLOW PREVENTION === */
+html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: 0 12px !important;
+        margin: 16px auto !important;
+    }
+
+    .block {
+        padding: 20px 12px !important;
+        border-radius: 16px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .contacts-block {
+        padding: 16px 8px !important;
+    }
+
+    .contacts-wrapper {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 16px !important;
+        box-sizing: border-box !important;
+    }
+
+    .contacts-info-card {
+        padding: 16px 12px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .map-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: 250px !important;
+        height: 250px !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        border-radius: 12px !important;
+    }
+
+    .map-container iframe {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 250px !important;
+        border: none !important;
+        display: block !important;
+    }
+}
