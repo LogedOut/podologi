@@ -964,23 +964,23 @@ html {
     scroll-behavior: smooth;
 }
 
-/* 1. Элегантный кинематографический Fade-Up со смазанным движением (Blur Reveal) */
+/* 1. Мгновенная плавная анимация (GPU Acceleration без тяжелого Blur) */
+.main-block {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+}
+
 .block {
     opacity: 0;
-    transform: translateY(32px) scale(0.985);
-    filter: blur(4px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
-                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
-                filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
-                box-shadow 0.4s ease, 
-                border-color 0.4s ease;
-    will-change: opacity, transform, filter;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    will-change: opacity, transform;
 }
 
 .block.revealed {
     opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
+    transform: translateY(0);
 }
 
 /* 2. Деликатная кнопка записи с эффектом живого дыхания и переливающимся градиентом */
@@ -1842,3 +1842,4 @@ html, body {
         max-height: 200px !important;
     }
 }
+
