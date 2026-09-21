@@ -38,7 +38,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css?v=7">
+    <link rel="stylesheet" href="css/style.css?v=8">
 </head>
 <body>
     <header class="header">
@@ -437,26 +437,53 @@
         <i class="fab fa-telegram-plane"></i>
     </a>
     <div id="callbackModal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content callback-modal-card">
+            <button class="modal-close-btn" id="modalCloseBtn" type="button" aria-label="Закрыть окно">
+                <i class="fas fa-times"></i>
+            </button>
+            
             <div class="modal-header">
+                <div class="modal-badge-icon">
+                    <i class="fas fa-phone-volume"></i>
+                </div>
                 <h3>Заказать обратный звонок</h3>
+                <p class="modal-subtitle">Оставьте контакты — специалист перезвонит вам в течение 10–15 минут для консультации</p>
             </div>
+            
             <form class="callback-form" id="callbackForm">
-                <div class="form-group">
-                    <input type="text" id="name" required placeholder="Ваше имя">
+                <div class="form-group input-with-icon">
+                    <i class="fas fa-user input-icon"></i>
+                    <input type="text" id="name" required placeholder="Ваше имя" autocomplete="name">
                 </div>
-                <div class="form-group">
-                    <input type="tel" id="phone" required placeholder="+7 (___) ___-__-__">
+                <div class="form-group input-with-icon">
+                    <i class="fas fa-phone-alt input-icon"></i>
+                    <input type="tel" id="phone" required placeholder="+7 (___) ___-__-__" autocomplete="tel">
                 </div>
-                <button type="submit" class="submit-button">
-                    <i class="fas fa-paper-plane"></i>
-                    Отправить заявку
+                
+                <div class="form-security-note">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Ваши данные конфиденциальны и защищены</span>
+                </div>
+                
+                <button type="submit" class="submit-button" id="callbackSubmitBtn">
+                    <span>Отправить заявку</span>
+                    <i class="fas fa-arrow-right"></i>
                 </button>
             </form>
+
+            <div class="modal-success-state" id="modalSuccessState" style="display: none;">
+                <div class="success-icon-circle">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h4>Заявка успешно принята!</h4>
+                <p>Спасибо! Мы уже получили ваше обращение и перезвоним вам в ближайшее время.</p>
+                <button type="button" class="success-close-btn" id="successCloseBtn">Отлично</button>
+            </div>
         </div>
     </div>
 
-    <script src="js/main.js"></script>
+
+    <script src="js/main.js?v=2"></script>
     <script src="js/modal.js"></script>
 </body>
 </html>

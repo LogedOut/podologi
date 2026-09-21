@@ -1956,3 +1956,231 @@ body {
 .address, .phone-number {
     color: #2f3e35 !important;
 }
+
+/* ==========================================================================
+   PREMIUM CALLBACK MODAL REFINEMENT (LOCAL PREVIEW)
+   ========================================================================== */
+
+/* Затемнение фона с благородным размытием */
+.modal {
+    background: rgba(15, 23, 42, 0.65) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Карточка модального окна */
+.callback-modal-card {
+    background: #ffffff !important;
+    border-radius: 24px !important;
+    max-width: 440px !important;
+    width: 100% !important;
+    padding: 36px 32px 32px !important;
+    box-shadow: 
+        0 20px 50px -10px rgba(15, 23, 42, 0.25),
+        0 0 0 1px rgba(226, 232, 240, 0.9) !important;
+    position: relative !important;
+    text-align: center;
+    overflow: visible !important;
+}
+
+/* Кнопка закрытия окна (крестик) */
+.modal-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: #f1f5f9;
+    color: #64748b;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+.modal-close-btn:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+    transform: rotate(90deg);
+}
+
+/* Иконка-бейдж в шапке модалки */
+.modal-badge-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(82, 183, 136, 0.15) 0%, rgba(27, 77, 62, 0.1) 100%);
+    color: #1b4d3e;
+    font-size: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    border: 1px solid rgba(82, 183, 136, 0.3);
+}
+
+.callback-modal-card .modal-header h3 {
+    font-size: 1.35rem !important;
+    font-weight: 800 !important;
+    color: #1b4d3e !important;
+    margin-bottom: 8px !important;
+    letter-spacing: -0.02em;
+}
+
+.modal-subtitle {
+    font-size: 0.88rem !important;
+    color: #64748b !important;
+    line-height: 1.5 !important;
+    margin-bottom: 22px !important;
+}
+
+/* Поля ввода с аккуратными иконками */
+.input-with-icon {
+    position: relative;
+    margin-bottom: 14px;
+}
+
+.input-with-icon .input-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 14px;
+    transition: color 0.2s ease;
+    pointer-events: none;
+}
+
+.input-with-icon input {
+    width: 100%;
+    padding: 13px 16px 13px 44px !important;
+    border: 1.5px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    font-size: 0.95rem !important;
+    color: #1e293b !important;
+    background: #f8fafc !important;
+    transition: all 0.25s ease !important;
+    outline: none !important;
+    box-sizing: border-box;
+}
+
+.input-with-icon input:focus {
+    background: #ffffff !important;
+    border-color: #52b788 !important;
+    box-shadow: 0 0 0 4px rgba(82, 183, 136, 0.16) !important;
+}
+
+.input-with-icon input:focus + .input-icon,
+.input-with-icon:focus-within .input-icon {
+    color: #1b4d3e;
+}
+
+/* Подпись о конфиденциальности */
+.form-security-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.76rem;
+    color: #64748b;
+    margin: 6px 0 20px;
+    text-align: left;
+}
+
+.form-security-note i {
+    color: #52b788;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+
+/* Кнопка отправки */
+.callback-modal-card .submit-button {
+    width: 100% !important;
+    padding: 14px 20px !important;
+    border-radius: 12px !important;
+    background: linear-gradient(135deg, #1b4d3e 0%, #2d6a4f 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    font-size: 0.98rem !important;
+    font-weight: 700 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    cursor: pointer !important;
+    box-shadow: 0 6px 20px rgba(27, 77, 62, 0.25) !important;
+    transition: all 0.25s ease !important;
+}
+
+.callback-modal-card .submit-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 10px 26px rgba(27, 77, 62, 0.35) !important;
+}
+
+.callback-modal-card .submit-button:hover i {
+    transform: translateX(4px);
+}
+
+.callback-modal-card .submit-button i {
+    transition: transform 0.2s ease;
+}
+
+/* Экран успеха (Success State) */
+.modal-success-state {
+    padding: 10px 0;
+    text-align: center;
+    animation: modalPop 0.3s ease;
+}
+
+.success-icon-circle {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #e8f5e9;
+    color: #2d6a4f;
+    font-size: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    box-shadow: 0 0 0 8px rgba(82, 183, 136, 0.15);
+}
+
+.modal-success-state h4 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #1b4d3e;
+    margin-bottom: 10px;
+}
+
+.modal-success-state p {
+    font-size: 0.92rem;
+    color: #64748b;
+    line-height: 1.55;
+    margin-bottom: 24px;
+}
+
+.success-close-btn {
+    padding: 12px 28px;
+    background: #1b4d3e;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.success-close-btn:hover {
+    background: #2d6a4f;
+    transform: translateY(-1px);
+}

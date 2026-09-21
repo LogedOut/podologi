@@ -161,16 +161,38 @@
     const modal = document.getElementById('callbackModal');
     const callbackButtons = document.querySelectorAll('.callback-button');
     const callbackForm = document.getElementById('callbackForm');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    const successCloseBtn = document.getElementById('successCloseBtn');
+    const modalSuccessState = document.getElementById('modalSuccessState');
+
+    const openModal = () => {
+        if (modalSuccessState) modalSuccessState.style.display = 'none';
+        if (callbackForm) callbackForm.style.display = 'flex';
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Блокируем прокрутку страницы под модалкой
+        const nameInput = document.getElementById('name');
+        if (nameInput) setTimeout(() => nameInput.focus(), 150);
+    };
+
+    const closeModal = () => {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    };
 
     callbackButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            modal.classList.add('active');
-        });
+        button.addEventListener('click', openModal);
     });
 
+    if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+    if (successCloseBtn) successCloseBtn.addEventListener('click', closeModal);
+
     modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.classList.remove('active');
+        if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
         }
     });
 
@@ -193,18 +215,20 @@
 
         if (name.length < 2) {
             alert('Пожалуйста, введите ваше имя');
+            if (nameInput) nameInput.focus();
             return;
         }
 
         if (phone.length < 18) {
             alert('Пожалуйста, введите полный номер телефона: +7 (XXX) XXX-XX-XX');
+            if (phoneInput) phoneInput.focus();
             return;
         }
 
-        const submitButton = callbackForm.querySelector('.submit-button');
-        const originalText = submitButton.innerHTML;
+        const submitButton = document.getElementById('callbackSubmitBtn') || callbackForm.querySelector('.submit-button');
+        const originalHtml = submitButton.innerHTML;
         submitButton.disabled = true;
-        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
+        submitButton.innerHTML = '<span>Отправка...</span> <i class="fas fa-spinner fa-spin"></i>';
         
         try {
             const response = await fetch(WORKER_URL, {
@@ -219,9 +243,15 @@
 
             if (response.ok && result.success) {
                 lastSendTime = Date.now();
-                alert('Спасибо! Ваша заявка успешно принята. Мы свяжемся с вами в ближайшее время.');
                 callbackForm.reset();
-                modal.classList.remove('active');
+                // Показываем красивый success state без alert()
+                if (modalSuccessState) {
+                    callbackForm.style.display = 'none';
+                    modalSuccessState.style.display = 'block';
+                } else {
+                    alert('Спасибо! Ваша заявка успешно принята. Мы свяжемся с вами в ближайшее время.');
+                    closeModal();
+                }
             } else {
                 throw new Error(result.error || 'Server error');
             }
@@ -230,10 +260,11 @@
             alert('Произошла ошибка при отправке заявки. Пожалуйста, позвоните нам напрямую: +7 (977) 807-94-09');
         } finally {
             submitButton.disabled = false;
-            submitButton.innerHTML = originalText;
+            submitButton.innerHTML = originalHtml;
         }
     });
 });
+
 
 
 
