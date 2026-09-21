@@ -12,3 +12,6 @@ Desktop.ini
 node_modules/
 .vscode/
 .idea/
+
+# ChatGPT improved experiment folder
+improved/
